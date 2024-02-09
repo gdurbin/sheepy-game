@@ -1,0 +1,35 @@
+---
+// Components
+import BaseHead from "@components/BaseHead.astro";
+import BaseHeader from "@components/BaseHeader.astro";
+import BaseFooter from "@components/BaseFooter.astro";
+
+// Styles
+import "@styles/global.css";
+
+// Props
+const { pageTitle = "Website", metaTitle, metaDescription } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <BaseHead
+    pageTitle={pageTitle}
+    metaTitle={metaTitle}
+    metaDescription={metaDescription}
+  />
+  <!-- class="flex flex-col min-h-screen bg-white dark:bg-gray-900 antialiased" -->
+  <body
+    class="min-h-screen grid grid-cols-1 grid-rows-[minmax(60px,_auto)_1fr_minmax(52px,_auto)] bg-white dark:bg-neutral-900 antialiased"
+  >
+    <BaseHeader />
+    <main class="my-4">
+      <slot />
+    </main>
+    <BaseFooter />
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
+    ></script>
+  </body>
+</html>

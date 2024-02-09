@@ -1,0 +1,21 @@
+---
+// Components
+
+// Layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Assets
+
+// Props
+const {
+  pageTitle = "About",
+  metaTitle = "About Page",
+  metaDescription = "Description of web page.",
+} = Astro.props;
+---
+
+<BaseLayout
+  pageTitle={"Website | " + pageTitle}
+  metaTitle={metaTitle}
+  metaDescription={metaDescription}
+/>

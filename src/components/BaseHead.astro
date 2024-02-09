@@ -1,0 +1,50 @@
+---
+// Transitions
+// import { ViewTransitions } from "astro:transitions";
+
+// Styles
+import "@styles/global.css";
+
+// Props
+const {
+  pageTitle = "Website",
+  metaTitle = "Title",
+  metaDescription = "Description",
+} = Astro.props;
+---
+
+<head>
+  <!-- Global Metadata -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+  <!-- Primary Meta Tags -->
+  <title>{pageTitle}</title>
+  <meta name="title" content={metaTitle} />
+  <meta name="description" content={metaDescription} />
+
+  <!-- Scripts -->
+  <!-- Load Theme -->
+  <script is:inline>
+    // document.addEventListener("astro:page-load", () => {
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (
+      localStorage.getItem("color-theme") === "dark" ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    // });
+  </script>
+
+  <!-- View Transitions -->
+  <!-- <ViewTransitions /> -->
+</head>

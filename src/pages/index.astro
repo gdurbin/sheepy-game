@@ -1,0 +1,25 @@
+---
+// Layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Assets
+import { Image } from "astro:assets";
+
+// Props
+const {
+  pageTitle = "Home",
+  metaTitle = "Home Page",
+  metaDescription = "Description of web page.",
+} = Astro.props;
+---
+
+<BaseLayout
+  pageTitle={"Website | " + pageTitle}
+  metaTitle={metaTitle}
+  metaDescription={metaDescription}
+>
+  <main
+    class="grid grid-cols-1 sm:grid-cols-1 grid-auto-cols place-items-center m-4 gap-4"
+  >
+  </main>
+</BaseLayout>
